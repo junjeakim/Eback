@@ -1,0 +1,12 @@
+.agreement-wrapper {
+   padding: 20px;
+   text-align: center;
+}
+
+.agreement-section {
+   margin-bottom: 20px;
+}
+
+.no-scroll {
+   border: 1px solid #ccc;
+}
