@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './../style/Join.css'
 import axios from 'axios'
+import Header from './../ind/header'
+import Footer from './../ind/footer'
 
 function RegisterForm() {
    const [formData, setFormData] = useState({
@@ -44,9 +46,7 @@ function RegisterForm() {
 
    const checkIdDuplicate = async () => {
       try {
-         const response = await axios.post('/api/member/checkId', {
-            mId: formData.mId,
-         })
+         const response = await axios.post('/api/member/checkId', { mId: formData.mId })
          if (response.data.available) {
             setIdCheck(true)
             alert('사용 가능한 아이디입니다.')
@@ -54,10 +54,11 @@ function RegisterForm() {
             alert('이미 사용 중인 아이디입니다.')
          }
       } catch (error) {
-         console.error('ID 확인에러: ', error)
+         console.error('ID 확인 에러: ', error)
          alert('ID 중복 확인 중 오류가 발생했습니다.')
       }
    }
+
    return (
       <div className="join_area">
          <form onSubmit={handleSubmit}>
@@ -71,7 +72,7 @@ function RegisterForm() {
                   <tr>
                      <td className="title">이름</td>
                      <td>
-                        <input type="text" name="mName" onChange={handleChange} required />
+                        <input type="text" name="mName" placeholder="이름을 입력하세요" onChange={handleChange} required />
                      </td>
                   </tr>
                   <tr>
@@ -88,20 +89,20 @@ function RegisterForm() {
                   <tr>
                      <td className="title">비밀번호</td>
                      <td>
-                        <input type="password" name="mPw" onChange={handleChange} required />
+                        <input type="password" name="mPw" placeholder="비밀번호를 입력하세요" onChange={handleChange} required />
                      </td>
                   </tr>
                   <tr>
                      <td className="title">비밀번호 확인</td>
                      <td>
-                        <input type="password" name="mPw2" onChange={handleChange} placeholder="비밀번호를 한번 더 입력하세요." required />
+                        <input type="password" name="mPw2" placeholder="비밀번호를 다시 입력하세요" onChange={handleChange} required />
                      </td>
                   </tr>
                   <tr>
                      <td className="title">이메일</td>
                      <td>
                         <div className="email-container">
-                           <input type="text" name="mEmail" onChange={handleChange} required />
+                           <input type="text" name="mEmail" placeholder="이메일" onChange={handleChange} required />
                            <i>@</i>
                            <select name="mEmail2" onChange={handleChange}>
                               <option value="">선택</option>
@@ -127,7 +128,7 @@ function RegisterForm() {
                   <tr>
                      <td className="title">주소</td>
                      <td>
-                        <input type="text" name="mAddr" maxLength="100" size="50" onChange={handleChange} />
+                        <input type="text" name="mAddr" maxLength="100" size="50" placeholder="주소를 입력하세요" onChange={handleChange} />
                      </td>
                   </tr>
                </tbody>
