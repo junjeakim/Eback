@@ -30,9 +30,10 @@ const Header = ({ userId }) => {
                      <Link to="/SignUpPage">
                         <button id="memRegBtn">회원가입</button>
                      </Link>
-                     <button id="loginBtn" onClick={() => setIsLoggedIn(true)}>
-                        로그인
-                     </button>
+                     {/* 로그인 버튼을 Link로 감싸서 경로 변경 */}
+                     <Link to="/LoginPage">
+                        <button id="loginBtn">로그인</button>
+                     </Link>
                   </>
                )}
             </div>
