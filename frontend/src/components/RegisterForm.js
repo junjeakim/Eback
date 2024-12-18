@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import './../style/Join.css'
 import axios from 'axios'
-import Header from './../ind/header'
-import Footer from './../ind/footer'
+import Header from './../ind/header' // Header 컴포넌트 추가
+import Footer from './../ind/footer' // Footer 컴포넌트 추가
 
 function RegisterForm() {
    const [formData, setFormData] = useState({
@@ -61,6 +61,9 @@ function RegisterForm() {
 
    return (
       <div className="join_area">
+         {/* Header 컴포넌트 추가 */}
+         <Header />
+
          <form onSubmit={handleSubmit}>
             <h1>회원가입</h1>
             <h2>
@@ -142,6 +145,9 @@ function RegisterForm() {
                </button>
             </div>
          </form>
+
+         {/* Footer 컴포넌트 추가 */}
+         <Footer />
       </div>
    )
 }

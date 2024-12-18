@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './style/LoginPage.css'
+import Header from './ind/header' // Header 컴포넌트 추가
+import Footer from './ind/footer' // Footer 컴포넌트 추가
 
 const LoginPage = () => {
    const [formData, setFormData] = useState({
@@ -28,6 +30,9 @@ const LoginPage = () => {
 
    return (
       <div id="wrap">
+         {/* Header 컴포넌트 추가 */}
+         <Header />
+
          <div id="Login_wrap">
             <div className="logintop">
                <h2>LOGIN</h2>
@@ -39,14 +44,14 @@ const LoginPage = () => {
                   <div className="login_con">
                      <div className="login_id">
                         <span>
-                           <img src="/images/ID이미지.jpg" alt="id로고" />
+                           <img src="./images/ID이미지.jpg" alt="id로고" />
                         </span>
                         <input type="text" name="userId" id="userId" placeholder="아이디" aria-label="아이디" value={formData.userId} onChange={handleChange} required />
                      </div>
 
                      <div className="login_pw">
                         <span>
-                           <img src="/images/pwimg.jpg" alt="비밀번호 이미지" />
+                           <img src="./images/pwimg.jpg" alt="비밀번호 이미지" />
                         </span>
                         <input type="password" name="password" id="password" placeholder="비밀번호" aria-label="비밀번호" value={formData.password} onChange={handleChange} required />
                      </div>
@@ -62,6 +67,9 @@ const LoginPage = () => {
                </div>
             </form>
          </div>
+
+         {/* Footer 컴포넌트 추가 */}
+         <Footer />
       </div>
    )
 }
