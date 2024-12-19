@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import './style/LoginPage.css'
 import Header from './ind/header' // Header 컴포넌트 추가
 import Footer from './ind/footer' // Footer 컴포넌트 추가
+import idImage from './images/ID이미지.jpg' // 이미지 import
+import pwImage from './images/pwimg.jpg' // 이미지 import
 
 const LoginPage = () => {
    const [formData, setFormData] = useState({
@@ -44,14 +46,14 @@ const LoginPage = () => {
                   <div className="login_con">
                      <div className="login_id">
                         <span>
-                           <img src="./images/ID이미지.jpg" alt="id로고" />
+                           <img src={idImage} alt="id로고" />
                         </span>
                         <input type="text" name="userId" id="userId" placeholder="아이디" aria-label="아이디" value={formData.userId} onChange={handleChange} required />
                      </div>
 
                      <div className="login_pw">
                         <span>
-                           <img src="./images/pwimg.jpg" alt="비밀번호 이미지" />
+                           <img src={pwImage} alt="비밀번호 이미지" />
                         </span>
                         <input type="password" name="password" id="password" placeholder="비밀번호" aria-label="비밀번호" value={formData.password} onChange={handleChange} required />
                      </div>
@@ -60,7 +62,7 @@ const LoginPage = () => {
 
                      <div className="login_bottom clfix">
                         <p>
-                           <a href="/SignUpPage">회원가입</a> | <a href="#">아이디/비밀번호 찾기</a>
+                           <a href="/SignUpPage">회원가입</a> | <a href="/ForgotPage">아이디/비밀번호 찾기</a>
                         </p>
                      </div>
                   </div>
